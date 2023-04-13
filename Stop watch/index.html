@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+
+    <div id="Screen_warpper">
+        <div id="clock">
+            <div class="time_screen">
+                <div id="gio">00</div>
+                <div>:</div>
+                <div id="phut">00</div>
+                <div>:</div>
+                <div id="giay">00</div>
+                <div>:</div>
+                <div id="miligiay">000</div>
+            </div>
+            <div class="flex_space_between" id="buttons">
+                <input type="button" id="btnstart" class="button" style="background-color: red;" value="Start">
+                <input type="button" id="btnstop" class="button" style="background-color: yellow;" value="Stop">
+                <input type="button" id="btnreset" class="button" style="background-color: aqua;" value="Reset">
+            </div>
+        </div>
+
+    </div>
+    <script>
+        var start_event = document.getElementById('btnstart');
+        var stop_event = document.getElementById('btnstop');
+        var reset_event = document.getElementById('btnreset');
+        var msecdom = document.getElementById('miligiay');
+        var secdom = document.getElementById('giay');
+        var minutedom = document.getElementById('phut');
+        var hourdom = document.getElementById('gio');
+
+        var miligiaytime = 0;
+        var sectime = 0;
+        var minutetime = 0;
+        var hourtime = 0;
+        
+
+        start_event.onclick = () => {
+            var timeplus = 4;
+            stop_event.onclick = () => {
+                if(timeplus = 4)
+                    timeplus = 0;
+                else timeplus = 4;
+            }
+            reset_event.onclick = () => {
+                timeplus = 0;
+                miligiaytime = 0;
+                sectime = 0;
+                minutetime = 0;
+                hourtime = 0;
+            }
+            setInterval(() => {
+                msecdom.innerText = addZero(miligiaytime += timeplus);
+                secdom.innerText = addZero(sectime);
+                minutedom.innerText = addZero(minutetime);
+                hourdom.innerText = addZero(hourtime);
+                if (miligiaytime >= 1000) {
+                    miligiaytime = 0;
+                    sectime++;
+                }
+                if (sectime >= 60) {
+                    sectime = 0;
+                    minutetime++;
+                }
+                if (minutetime >= 60) {
+                    minutetime = 0;
+                    hourtime++;
+                }
+            }, 0)
+            
+        }
+        
+        function addZero(i) {
+            if (i < 10) return '0' + i;
+            return i;
+        }
+    </script>
+</body>
+
+</html>
