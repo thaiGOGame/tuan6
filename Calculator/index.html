@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #main_warpper{
+        position: absolute;
+        width: 700px;
+        height: 900px;
+        left: 50%;
+        top: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        border: 1px solid indianred;
+        border-radius: 20px;
+    }
+    #math_screen{
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+        position: relative;
+        width: 700px;
+        height: 300px;
+        background-color: firebrick;
+        font-size: 200px;
+        text-align: right;
+    }
+    .numbers{
+        background-color: lightgray;
+        font-size: 100px;
+        border-radius: 90%;
+        text-align: center;
+        gap: 20px;
+        width: 100px;
+        height: 100px;
+        position: relative;
+    }
+    #control_screen{
+        position: relative;
+        left: 40px;
+        top: 20px;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        width: 100%;
+        height: 600px;
+    }
+    #btn{
+        color: white;
+        background-color: red;
+    }
+    #btnAC{
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        color: white;
+        background-color: red;
+        border: none;
+        width: 100px;
+        height: 50px;
+        border-top-right-radius: 20px;
+        font-size: 40px;
+    }
+</style>
+<body>
+    <div id="main_warpper">
+        <div id="math_screen">
+            <button id="btnAC">AC</button>
+            <span id="number_show">0</span>
+        </div>
+        <div id="control_screen">
+            <button class="numbers" id="btn7">7</button>
+            <button class="numbers" id="btn8">8</button>
+            <button class="numbers" id="btn9">9</button>
+            <button class="numbers" id="btn10">+</button>
+            <button class="numbers" id="btn4">4</button>
+            <button class="numbers" id="btn5">5</button>
+            <button class="numbers" id="btn6">6</button>
+            <button class="numbers" id="btn11">-</button>
+            <button class="numbers" id="btn1">1</button>
+            <button class="numbers" id="btn2">2</button>
+            <button class="numbers" id="btn3">3</button>
+            <button class="numbers" id="btn12">*</button>
+            <button class="numbers" id="btn0">0</button>
+            <button class="numbers" id="btn15">.</button>
+            <button class="numbers" id="btn13">/</button>
+            <button class="numbers" id="btn14">=</button>
+        </div>
+    </div>
+    <script>
+        var expr = 0;
+        var expr_event = document.getElementById('number_show');
+        var btn0_event = document.getElementById('btn0');
+        var btn1_event = document.getElementById('btn1');
+        var btn2_event = document.getElementById('btn2');
+        var btn3_event = document.getElementById('btn3');
+        var btn4_event = document.getElementById('btn4');
+        var btn5_event = document.getElementById('btn5');
+        var btn6_event = document.getElementById('btn6');
+        var btn7_event = document.getElementById('btn7');
+        var btn8_event = document.getElementById('btn8');
+        var btn9_event = document.getElementById('btn9');
+        var btn10_event = document.getElementById('btn10');
+        var btn11_event = document.getElementById('btn11');
+        var btn12_event = document.getElementById('btn12');
+        var btn13_event = document.getElementById('btn13');
+        var btn14_event = document.getElementById('btn14');
+        var btn15_event = document.getElementById('btn15');
+        var btnAC_event = document.getElementById('btnAC');
+        setInterval(() => {
+            btnAC_event.onclick = () => {
+                expr_event.innerText = '0';
+                expr = 0;
+            }
+            btn0_event.onclick = () => {
+                expr_event.innerText += '0';
+            }
+        }, 0)
+    </script>
+</body>
+</html>
